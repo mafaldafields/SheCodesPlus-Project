@@ -1,4 +1,4 @@
-// Get dates
+// Get current date and time & show it
 let now = new Date();
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 let weekDay = weekDays[now.getDay()];
@@ -12,6 +12,12 @@ let date = document.querySelector("#fontdate");
 date.innerHTML=`${weekDay}, ${day} ${month} ${year}`;
 let time = document.querySelector("#fonttime");
 time.innerHTML=`${hour}:${minutes}`;
+
+// Weekdays in all boxes
+    // today
+let today = weekDays[now.getDay()];
+let todayT = document.querySelector("#today");
+todayT.innerHTML = `${today}`;
 
 
 // Weather API Integration - axios has been firstly installed
