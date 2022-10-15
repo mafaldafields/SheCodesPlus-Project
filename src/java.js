@@ -28,15 +28,29 @@ function showTodayPlus1 () {
         todayplus1T.innerHTML = `${todayplus1}`
     } else {
         let inverse1 = indexplus1+7;
-        let todayplus1_inv = weekDays [inverse1];
+        let todayplus1_inv = weekDays[inverse1];
         let todayplus1T = document.querySelector("#todayplus1");
         todayplus1T.innerHTML = `${todayplus1_inv}`
     }
 }
-
+    // today plus 2
+    let indexplus2=[now.getDay()]-7+2;
+    function showTodayPlus2() {
+        if (indexplus2>=0) {
+            let todayplus2=weekDays[indexplus2];
+            let todayplus2T=document.querySelector("#todayplus2");
+            todayplus2T.innerHTML=`${todayplus2}`
+        } else {
+            let inverse2=indexplus2+7;
+            let todayplus2_inv = weekDays[inverse2];
+            let todayplus2T=document.querySelector("#todayplus2");
+            todayplus2T.innerHTML=`${todayplus2_inv}`
+        }
+    }
 
     //Run all functions for all weekDays
 showTodayPlus1();
+showTodayPlus2();
 
 // Weather API Integration - axios has been firstly installed
 let apiKey ="f2ef2a14fcdd5a099883dfccadbdb334";
@@ -45,8 +59,6 @@ function displayResponse (response) {
     console.log(response.data)
 };
 axios.get(apiUrl).then(displayResponse);
-//Geolocation API Integration
-
 
 //Calculate current location after clicking current location button
 function calculateCurrentCity (event) {
