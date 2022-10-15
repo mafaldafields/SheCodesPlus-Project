@@ -18,8 +18,8 @@ time.innerHTML=`${hour}:${minutes}`;
 let today = weekDays[now.getDay()];
 let todayT = document.querySelector("#today");
 todayT.innerHTML = `${today}`;
-
-    // today plus 1
+    
+// today plus 1
 let indexplus1 =[now.getDay()]-7+1;
 function showTodayPlus1 () {
     if (indexplus1 >= 0) {
@@ -47,10 +47,71 @@ function showTodayPlus1 () {
             todayplus2T.innerHTML=`${todayplus2_inv}`
         }
     }
+    //today plus 3
+    let indexplus3=[now.getDay()]-7+3;
+    function showTodayPlus3 () {
+        if (indexplus3>=0) {
+            let todayplus3=weekDays[indexplus3];
+            let todayplus3T=document.querySelector("#todayplus3");
+            todayplus3T.innerHTML=`${todayplus3}`;
+        } else {
+            let inverse3=indexplus3+7;
+            let todayplus3_inv=weekDays[inverse3];
+            let todayplus3T=document.querySelector("#todayplus3");
+            todayplus3T.innerHTML=`${todayplus3_inv}`;
+        }
+    }
+    //today plus 4
+    let indexplus4=[now.getDay()]-7+4;
+    function showTodayPlus4(){
+        if (indexplus4>=0) {
+            let todayplus4=weekDays[indexplus4];
+            let todayplus4T=document.querySelector("#todayplus4");
+            todayplus4T.innerHTML=`${todayplus4}`;
+        } else {
+            let inverse4=indexplus4+7;
+            let todayplus4_inv=weekDays[inverse4];
+            let todayplus4T=document.querySelector("#todayplus4");
+            todayplus4T.innerHTML=`${todayplus4_inv}`;
+        }
+    }
+    //today plus 5 
+    let indexplus5=[now.getDay()]-7+5;
+    function showTodayPlus5(){
+        if (indexplus5>=0){
+            let todayplus5=weekDays[indexplus5];
+            let todayplus5T=document.querySelector("#todayplus5");
+            todayplus5T.innerHTML=`${todayplus5}`;
+        } else {
+            let inverse5=indexplus5+7;
+            let todayplus5_inv=weekDays[inverse5];
+            let todayplus5T=document.querySelector("#todayplus5");
+            todayplus5T.innerHTML=`${todayplus5_inv}`;
+        }
+    }
+
+    //today plus 6
+    let indexplus6=[now.getDay()]-7+6;
+    function showTodayPlus6(){
+        if (indexplus6>=0) {
+            let todayplus6=weekDays[indexplus6];
+            let todayplus6T=document.querySelector("#todayplus6");
+            todayplus6T.innerHTML=`${todayplus6}`;
+        } else {
+            let inverse6=indexplus6+7;
+            let todayplus6_inv=weekDays[inverse6];
+            let todayplus6T=document.querySelector("#todayplus6");
+            todayplus6T.innerHTML=`${todayplus6_inv}`;
+        }
+    }
 
     //Run all functions for all weekDays
 showTodayPlus1();
 showTodayPlus2();
+showTodayPlus3();
+showTodayPlus4();
+showTodayPlus5();
+showTodayPlus6();
 
 // Weather API Integration - axios has been firstly installed
 let apiKey ="f2ef2a14fcdd5a099883dfccadbdb334";
