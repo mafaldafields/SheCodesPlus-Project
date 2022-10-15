@@ -42,7 +42,7 @@ h2 {
 
 }
 form {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 
 input {
@@ -122,4 +122,19 @@ input {
 
 #today {
     text-align: center;
+}
+
+#current-location {
+margin-top: 10px;
+text-align: center;
+}
+
+#currentLocationButton {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color:#1b3a55;
+    font-size: smaller;
+    color: white;
+    border-radius: 5px;
 }
