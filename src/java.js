@@ -19,6 +19,24 @@ let today = weekDays[now.getDay()];
 let todayT = document.querySelector("#today");
 todayT.innerHTML = `${today}`;
 
+    // today plus 1
+let indexplus1 =[now.getDay()]-7+1;
+function showTodayPlus1 () {
+    if (indexplus1 >= 0) {
+        let todayplus1 = weekDays[indexplus1];
+        let todayplus1T = document.querySelector("#todayplus1");
+        todayplus1T.innerHTML = `${todayplus1}`
+    } else {
+        let inverse1 = indexplus1+7;
+        let todayplus1_inv = weekDays [inverse1];
+        let todayplus1T = document.querySelector("#todayplus1");
+        todayplus1T.innerHTML = `${todayplus1_inv}`
+    }
+}
+
+
+    //Run all functions for all weekDays
+showTodayPlus1();
 
 // Weather API Integration - axios has been firstly installed
 let apiKey ="f2ef2a14fcdd5a099883dfccadbdb334";
