@@ -149,3 +149,14 @@ text-align: center;
     color: white;
     border-radius: 5px;
 }
+
+footer {
+    font-family: 'Red Hat Display', sans-serif;
+    text-align: right;
+    color: white;
+    font-size: smaller;    
+}
+
+.footer {
+    color: white;
+}

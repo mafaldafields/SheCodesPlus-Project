@@ -11,7 +11,14 @@ let minutes = now.getMinutes();
 let date = document.querySelector("#fontdate");
 date.innerHTML=`${weekDay}, ${day} ${month} ${year}`;
 let time = document.querySelector("#fonttime");
-time.innerHTML=`${hour}:${minutes}`;
+function displayTime () {
+    if (minutes>9) {
+    time.innerHTML=`${hour}:${minutes}`;
+    } else {
+        time.innerHTML=`${hour}:0${minutes}`;
+    }}
+    displayTime();
+
 
 // Weekdays in all boxes
     // today
