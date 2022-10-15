@@ -96,6 +96,10 @@ input {
     grid-area: today;
 }
 
+.today {
+    font-size: larger;
+}
+
 #todayplus1 {
     grid-area: todayplus1;
 }

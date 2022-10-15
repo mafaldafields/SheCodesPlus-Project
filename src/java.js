@@ -16,7 +16,7 @@ time.innerHTML=`${hour}:${minutes}`;
 // Weekdays in all boxes
     // today
 let today = weekDays[now.getDay()];
-let todayT = document.querySelector("#today");
+let todayT = document.querySelector(".today");
 todayT.innerHTML = `${today}`;
     
 // today plus 1
