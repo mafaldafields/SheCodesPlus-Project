@@ -94,7 +94,7 @@ input {
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 15px;
-    height: 140px;
+    height: 300px;
 }
 
 .col2:hover{
@@ -140,6 +140,17 @@ input {
     text-align: center;
     width:30%;
 }
+
+#todayplus1 {
+    font-size: larger;
+}
+#todayplus2 {
+    font-size: larger;
+}
+#todayplus3 {
+    font-size: larger;
+}
+
 
 #today {
     text-align: center;

@@ -68,57 +68,11 @@ function showTodayPlus1 () {
             todayplus3T.innerHTML=`${todayplus3_inv}`;
         }
     }
-    //today plus 4
-    let indexplus4=[now.getDay()]-7+4;
-    function showTodayPlus4(){
-        if (indexplus4>=0) {
-            let todayplus4=weekDays[indexplus4];
-            let todayplus4T=document.querySelector("#todayplus4");
-            todayplus4T.innerHTML=`${todayplus4}`;
-        } else {
-            let inverse4=indexplus4+7;
-            let todayplus4_inv=weekDays[inverse4];
-            let todayplus4T=document.querySelector("#todayplus4");
-            todayplus4T.innerHTML=`${todayplus4_inv}`;
-        }
-    }
-    //today plus 5 
-    let indexplus5=[now.getDay()]-7+5;
-    function showTodayPlus5(){
-        if (indexplus5>=0){
-            let todayplus5=weekDays[indexplus5];
-            let todayplus5T=document.querySelector("#todayplus5");
-            todayplus5T.innerHTML=`${todayplus5}`;
-        } else {
-            let inverse5=indexplus5+7;
-            let todayplus5_inv=weekDays[inverse5];
-            let todayplus5T=document.querySelector("#todayplus5");
-            todayplus5T.innerHTML=`${todayplus5_inv}`;
-        }
-    }
-
-    //today plus 6
-    let indexplus6=[now.getDay()]-7+6;
-    function showTodayPlus6(){
-        if (indexplus6>=0) {
-            let todayplus6=weekDays[indexplus6];
-            let todayplus6T=document.querySelector("#todayplus6");
-            todayplus6T.innerHTML=`${todayplus6}`;
-        } else {
-            let inverse6=indexplus6+7;
-            let todayplus6_inv=weekDays[inverse6];
-            let todayplus6T=document.querySelector("#todayplus6");
-            todayplus6T.innerHTML=`${todayplus6_inv}`;
-        }
-    }
 
     //Run all functions for all weekDays
 showTodayPlus1();
 showTodayPlus2();
 showTodayPlus3();
-showTodayPlus4();
-showTodayPlus5();
-showTodayPlus6();
 
 //Calculate current location
     function currentLocation (position) { //to make sure it is working, this function isn't really doing anything useful for the project
@@ -151,11 +105,6 @@ function getTodayWeather(position) {
                 "src",
                 `https://openweathermap.org/img/wn/${todayIconCode}@2x.png`
             );
-         
-
-            //let currentTempIcon=response.data.list.weather.icon;
-            //let currentTempIconText=document.querySelector(".temperatureTodayIcon");
-            //currentTempIconText.innerHTML=`${currentTempIcon}`;
         };
     axios.get(apiUrl).then(displayResponse);
 }
