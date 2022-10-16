@@ -120,13 +120,30 @@ showTodayPlus4();
 showTodayPlus5();
 showTodayPlus6();
 
-// Weather API Integration - axios has been firstly installed
-let apiKey ="f2ef2a14fcdd5a099883dfccadbdb334";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&units=metric&appid=f2ef2a14fcdd5a099883dfccadbdb334`;
-function displayResponse (response) {
-    console.log(response.data)
-};
-axios.get(apiUrl).then(displayResponse);
+//Calculate current location
+    function currentLocation (position) { //to make sure it is working, this function isn't really doing anything useful for the project
+        let currentLong = position.coords.longitude;
+        let currentLat = position.coords.latitude;
+        console.log(currentLong);
+        console.log(currentLat);
+    }
+    navigator.geolocation.getCurrentPosition(currentLocation);
+
+
+function getTodayWeather(position) {
+    let currentLong = position.coords.longitude;
+    let currentLat = position.coords.latitude;
+    let apiKey =`8648397279af896dbfe0e9040102c5d4`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&appid=${apiKey}&units=metric`;
+        function displayResponse(response) {
+            let currentTemp=Math.round(response.data.list[0].main.temp);
+            let currentTempText=document.querySelector(".temperatureToday");
+            currentTempText.innerHTML=`It's currently ${currentTemp}ºC`;
+        };
+    axios.get(apiUrl).then(displayResponse);
+}
+ navigator.geolocation.getCurrentPosition(getTodayWeather)
+
 
 //Calculate current location after clicking current location button
 function calculateCurrentCity (event) {
@@ -139,5 +156,21 @@ function calculateCurrentCity (event) {
     }
     navigator.geolocation.getCurrentPosition(getResponse);
 }
+
+function showCurrentCityWeather(event){
+    event.preventDefault();
+    
+}
+
+//let lat = "Lisbon";// to change! 
+//let apiUrl = `https://api.openweathermap.org/data/2.5/forecast'lat=${lat}&${lon}={lon}&units=metric&appid=f2ef2a14fcdd5a099883dfccadbdb334`;
+//function displayResponse (response) {
+    //console.log(response.data)
+    //let temperatureToday = document.querySelector(".temperatureToday");
+    //let temperatureTodayAPI=Math.round(response.data.main.temp);
+    //temperatureToday.innerHTML=`${temperatureTodayAPI}ºC`;
+//axios.get(apiUrl).then(displayResponse);
+
 let currentCityButton=document.querySelector("#currentLocationButton");
 currentCityButton.addEventListener("click", calculateCurrentCity);
+currentCityButton.addEventListener("click", showCurrentCityWeather);
