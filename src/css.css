@@ -170,3 +170,18 @@ footer {
 .footer {
     color: white;
 }
+
+.temperatureToday {
+    color:#1b3a55;
+    font-weight:bolder;
+    font-size: medium;
+    margin-bottom: 0cm;
+}
+.temperatureTodayDescription {
+    margin-bottom: 0cm;
+}
+
+img #todayIcon {
+    size: 10px;
+}
+

@@ -139,6 +139,23 @@ function getTodayWeather(position) {
             let currentTemp=Math.round(response.data.list[0].main.temp);
             let currentTempText=document.querySelector(".temperatureToday");
             currentTempText.innerHTML=`It's currently ${currentTemp}ºC`;
+            let currentTempDesc=response.data.list[0].weather[0].description;
+            let currentTempDescription=currentTempDesc.charAt(0).toUpperCase()+currentTempDesc.slice(1);
+            let temperatureTodayDescription=document.querySelector(".temperatureTodayDescription");
+            temperatureTodayDescription.innerHTML=`${currentTempDescription}`;
+            console.log(response.data.list[0].weather[0].icon);
+            // add today icon
+            let todayIconCode=response.data.list[0].weather[0].icon;
+            todayIconT=document.querySelector("#todayIcon");
+            todayIconT.setAttribute(
+                "src",
+                `https://openweathermap.org/img/wn/${todayIconCode}@2x.png`
+            );
+         
+
+            //let currentTempIcon=response.data.list.weather.icon;
+            //let currentTempIconText=document.querySelector(".temperatureTodayIcon");
+            //currentTempIconText.innerHTML=`${currentTempIcon}`;
         };
     axios.get(apiUrl).then(displayResponse);
 }
