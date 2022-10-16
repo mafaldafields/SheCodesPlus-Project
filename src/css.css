@@ -81,6 +81,11 @@ input {
     height: 300px; 
 }
 
+.col1:hover{
+    background-color: #a5bdce;
+    transition: 0.25s;
+}
+
 .col2 {
     border: 1px dotted black;
     padding-top: 10px;
@@ -90,6 +95,11 @@ input {
     margin-right: 5px;
     margin-bottom: 15px;
     height: 140px;
+}
+
+.col2:hover{
+    background-color: #a5bdce;
+    transition: 0.25s;
 }
 
 #today {
