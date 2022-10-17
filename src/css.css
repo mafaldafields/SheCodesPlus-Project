@@ -185,9 +185,21 @@ footer {
 .temperatureToday {
     color:#1b3a55;
     font-weight:bolder;
-    font-size: medium;
+    font-size:larger;
     margin-bottom: 0cm;
 }
+
+.temperatureTodayplus1 {
+    margin-bottom: 0cm;
+}
+
+.windspeed {
+    font-size: smaller;
+}
+.windspeedtodayplus1 {
+    font-size: smaller;
+}
+
 .temperatureTodayDescription {
     margin-bottom: 0cm;
 }

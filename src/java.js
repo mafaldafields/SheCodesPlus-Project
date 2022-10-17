@@ -1,4 +1,4 @@
-// Get current date and time & show it
+// GET CURRENT DATE & TIME AND SHOW IT
 let now = new Date();
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 let weekDay = weekDays[now.getDay()];
@@ -20,13 +20,12 @@ function displayTime () {
     displayTime();
 
 
-// Weekdays in all boxes
+// DISPLAY WEEKDAYS
     // today
 let today = weekDays[now.getDay()];
 let todayT = document.querySelector(".today");
 todayT.innerHTML = `${today}`;
-    
-// today plus 1
+    // today plus 1
 let indexplus1 =[now.getDay()]-7+1;
 function showTodayPlus1 () {
     if (indexplus1 >= 0) {
@@ -70,47 +69,66 @@ function showTodayPlus1 () {
     }
 
     //Run all functions for all weekDays
-showTodayPlus1();
-showTodayPlus2();
-showTodayPlus3();
+    showTodayPlus1();
+    showTodayPlus2();
+    showTodayPlus3();
 
-//Calculate current location
+//CALCULATE CURRENT LOCATION
     function currentLocation (position) { //to make sure it is working, this function isn't really doing anything useful for the project
         let currentLong = position.coords.longitude;
         let currentLat = position.coords.latitude;
-        console.log(currentLong);
-        console.log(currentLat);
     }
     navigator.geolocation.getCurrentPosition(currentLocation);
 
-
-function getTodayWeather(position) {
+// AUTO - DISPLAY WEATHER & FORECAST FOR CURRENT LOCATION
+function getCPWeather(position) { // get current position weather || auto
     let currentLong = position.coords.longitude;
     let currentLat = position.coords.latitude;
+    console.log(currentLong);
+    console.log(currentLat);
     let apiKey =`8648397279af896dbfe0e9040102c5d4`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLong}&appid=${apiKey}&units=metric`;
         function displayResponse(response) {
             let currentTemp=Math.round(response.data.list[0].main.temp);
             let currentTempText=document.querySelector(".temperatureToday");
-            currentTempText.innerHTML=`It's currently ${currentTemp}ºC`;
+            currentTempText.innerHTML=`${currentTemp}ºC`;
+             let windspeedT = document.querySelector(".windspeed");
+            let windspeed = response.data.list[0].wind.speed;
             let currentTempDesc=response.data.list[0].weather[0].description;
             let currentTempDescription=currentTempDesc.charAt(0).toUpperCase()+currentTempDesc.slice(1);
             let temperatureTodayDescription=document.querySelector(".temperatureTodayDescription");
             temperatureTodayDescription.innerHTML=`${currentTempDescription}`;
-            console.log(response.data.list[0].weather[0].icon);
-            // add today icon
             let todayIconCode=response.data.list[0].weather[0].icon;
-            todayIconT=document.querySelector("#todayIcon");
+            windspeedT.innerHTML=`Wind speed is ${windspeed}m/s`;
+            let todayIconT=document.querySelector("#todayIcon");
             todayIconT.setAttribute(
                 "src",
                 `https://openweathermap.org/img/wn/${todayIconCode}@2x.png`
             );
+           
+            //todayplus1
+            let tempTodayplus1 = Math.round(response.data.list[8].main.temp);
+            let tempTodayplus1T = document.querySelector (".temperatureTodayplus1");
+            tempTodayplus1T.innerHTML=`${tempTodayplus1}ºC`;
+            let windspeedTplus1 = document.querySelector(".windspeedtodayplus1");
+            let windspeedplus1 = response.data.list[8].wind.speed;
+            windspeedTplus1.innerHTML=`Wind speed will be ${windspeedplus1}m/s`
+          
+            let currentTempDescplus1=(response.data.list[8].weather[0].description);
+            let currentTempDescriptionplus1=currentTempDescplus1.charAt(0).toUpperCase()+currentTempDescplus1.slice(1);
+            let temperatureTodayDescriptionplus1=document.querySelector(".temperatureTodayDescriptionplus1");
+            temperatureTodayDescriptionplus1.innerHTML=`${currentTempDescriptionplus1}`;
+
         };
     axios.get(apiUrl).then(displayResponse);
 }
- navigator.geolocation.getCurrentPosition(getTodayWeather)
+ navigator.geolocation.getCurrentPosition(getCPWeather) 
+
+/
 
 
+
+//need to review under
 //Calculate current location after clicking current location button
 function calculateCurrentCity (event) {
     event.preventDefault();
