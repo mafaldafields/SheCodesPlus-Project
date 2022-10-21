@@ -192,11 +192,23 @@ footer {
 .temperatureTodayplus1 {
     margin-bottom: 0cm;
 }
+.temperatureTodayplus2 {
+    margin-bottom: 0cm;
+}
+.temperatureTodayplus3 {
+    margin-bottom: 0cm;
+}
 
 .windspeed {
     font-size: smaller;
 }
 .windspeedtodayplus1 {
+    font-size: smaller;
+}
+.windspeedtodayplus2 {
+    font-size: smaller;
+}
+.windspeedtodayplus3 {
     font-size: smaller;
 }
 

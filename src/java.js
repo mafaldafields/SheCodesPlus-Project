@@ -113,12 +113,52 @@ function getCPWeather(position) { // get current position weather || auto
             let windspeedTplus1 = document.querySelector(".windspeedtodayplus1");
             let windspeedplus1 = response.data.list[8].wind.speed;
             windspeedTplus1.innerHTML=`Wind speed will be ${windspeedplus1}m/s`
-          
             let currentTempDescplus1=(response.data.list[8].weather[0].description);
             let currentTempDescriptionplus1=currentTempDescplus1.charAt(0).toUpperCase()+currentTempDescplus1.slice(1);
             let temperatureTodayDescriptionplus1=document.querySelector(".temperatureTodayDescriptionplus1");
             temperatureTodayDescriptionplus1.innerHTML=`${currentTempDescriptionplus1}`;
+            let todayIconCodeplus1=response.data.list[8].weather[0].icon;
+            let todayIconTplus1=document.querySelector("#todayIconplus1");
+            todayIconTplus1.setAttribute(
+                "src",
+                `https://openweathermap.org/img/wn/${todayIconCodeplus1}.png`
+            );
 
+            //todayplus2
+            let tempTodayplus2 = Math.round(response.data.list[16].main.temp);
+            let tempTodayplus2T = document.querySelector (".temperatureTodayplus2");
+            tempTodayplus2T.innerHTML=`${tempTodayplus2}ºC`;
+            let windspeedTplus2 = document.querySelector(".windspeedtodayplus2");
+            let windspeedplus2 = response.data.list[16].wind.speed;
+            windspeedTplus2.innerHTML=`Wind speed will be ${windspeedplus2}m/s`
+            let currentTempDescplus2=(response.data.list[16].weather[0].description);
+            let currentTempDescriptionplus2=currentTempDescplus2.charAt(0).toUpperCase()+currentTempDescplus2.slice(1);
+            let temperatureTodayDescriptionplus2=document.querySelector(".temperatureTodayDescriptionplus2");
+            temperatureTodayDescriptionplus2.innerHTML=`${currentTempDescriptionplus2}`;
+            let todayIconCodeplus2=response.data.list[16].weather[0].icon;
+            let todayIconTplus2=document.querySelector("#todayIconplus2");
+            todayIconTplus2.setAttribute(
+                "src",
+                `https://openweathermap.org/img/wn/${todayIconCodeplus2}.png`
+            );
+
+            //todayplus3
+            let tempTodayplus3 = Math.round(response.data.list[24].main.temp);
+            let tempTodayplus3T = document.querySelector (".temperatureTodayplus3");
+            tempTodayplus3T.innerHTML=`${tempTodayplus3}ºC`;
+            let windspeedTplus3 = document.querySelector(".windspeedtodayplus3");
+            let windspeedplus3 = response.data.list[24].wind.speed;
+            windspeedTplus3.innerHTML=`Wind speed will be ${windspeedplus3}m/s`
+            let currentTempDescplus3=(response.data.list[24].weather[0].description);
+            let currentTempDescriptionplus3=currentTempDescplus3.charAt(0).toUpperCase()+currentTempDescplus3.slice(1);
+            let temperatureTodayDescriptionplus3=document.querySelector(".temperatureTodayDescriptionplus3");
+            temperatureTodayDescriptionplus3.innerHTML=`${currentTempDescriptionplus3}`;
+            let todayIconCodeplus3=response.data.list[24].weather[0].icon;
+            let todayIconTplus3=document.querySelector("#todayIconplus3");
+            todayIconTplus3.setAttribute(
+                "src",
+                `https://openweathermap.org/img/wn/${todayIconCodeplus3}.png`
+            );
         };
     axios.get(apiUrl).then(displayResponse);
 }
