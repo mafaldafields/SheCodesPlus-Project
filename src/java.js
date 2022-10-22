@@ -149,6 +149,8 @@ function getCPWeather(position) { // get current position weather || auto
 }
  navigator.geolocation.getCurrentPosition(getCPWeather); 
 
+
+ // Search city and display weather
 function weatherForSearched (event) {
     event.preventDefault();
     let searchedCity = document.querySelector("#search-input");
@@ -162,9 +164,12 @@ function weatherForSearched (event) {
         }
     axios.get(apiUrl1).then(defineL);
 }
-
 let searchForm = document.querySelector ("#search-bar");
 searchForm.addEventListener("submit", weatherForSearched)
 
-
-
+// Button for current location
+function getloc() {
+    navigator.geolocation.getCurrentPosition(getCPWeather); 
+}
+let currentLocButton = document.querySelector ("#currentLocationButton");
+currentLocButton.addEventListener("click", getloc);

@@ -22,10 +22,10 @@
             <i class="fa-solid fa-earth-americas" id="worldicon"></i>
             <form id="search-bar" onsubmit="return false">
                 <input id="search-input" type="text" placeholder="Type your location"/>
-                <button id="currentLocationButton"> Get current location </button>
                 <p id="current-location"></p>
             </form>
-            <p id="displayinfocity">City</p>
+            <button id="currentLocationButton"> Get current location </button>
+            <p id="displayinfocity"></p>
             <div class="container" id="maincontainer">
                 <div class="col1" class="today" id="today">
                 Today <br>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col2" class="nottoday">
                 <p  id="todayplus1"></p>
-                <p class="timeinterval"> In 24 hours </p> <br>
+                <p class="timeinterval" id="timeintervalplus1"> In 24 hours </p> <br>
                 <p class="temperatureTodayplus1"></p>
                 <p class="windspeedtodayplus1"></p>
                 <p class="temperatureTodayDescriptionplus1"></p>
