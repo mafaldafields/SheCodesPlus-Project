@@ -195,7 +195,7 @@ function weatherForSearched (event) {
     event.preventDefault();
     let searchedCity = document.querySelector("#search-input");
     let apiKey =`8648397279af896dbfe0e9040102c5d4`;
-    let apiUrl1 = `http://api.openweathermap.org/geo/1.0/direct?q=${searchedCity.value}&appid=${apiKey}`
+    let apiUrl1 = `https://api.openweathermap.org/geo/1.0/direct?q=${searchedCity.value}&appid=${apiKey}`
         function defineL (response){
             let Long = response.data[0].lon;
             let Lat = response.data[0].lat;
