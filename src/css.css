@@ -107,7 +107,7 @@ input {
 }
 
 .today {
-    font-size: larger;
+    font-size: 20px;
 }
 
 #todayplus1 {
@@ -134,7 +134,7 @@ input {
     grid-area: todayplus6;
 }
 
-.search-bar {
+#search-input {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -185,7 +185,7 @@ footer {
 .temperatureToday {
     color:#1b3a55;
     font-weight:bolder;
-    font-size:larger;
+    font-size: 20px;
     margin-bottom: 0cm;
 }
 
@@ -214,6 +214,7 @@ footer {
 
 .temperatureTodayDescription {
     margin-bottom: 0cm;
+    font-size: 20px;
 }
 
 img #todayIcon {

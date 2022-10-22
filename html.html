@@ -20,11 +20,12 @@
             <h2 id="fontdate">
             </h2> <h2 id=fonttime></h2>
             <i class="fa-solid fa-earth-americas" id="worldicon"></i>
-            <form>
-                <input class="search-bar" type="text" placeholder="Type your location"/>
+            <form id="search-bar" onsubmit="return false">
+                <input id="search-input" type="text" placeholder="Type your location"/>
                 <button id="currentLocationButton"> Get current location </button>
                 <p id="current-location"></p>
             </form>
+            <p id="displayinfocity">City</p>
             <div class="container" id="maincontainer">
                 <div class="col1" class="today" id="today">
                 Today <br>
