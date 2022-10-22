@@ -1,8 +1,8 @@
 #main {
     background-image: url("background.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
-    min-height: 800px;
+    background-size:cover;
+    min-height: 900px;
 }
 
 body {
@@ -172,6 +172,18 @@ text-align: center;
     font-size: smaller;
     color: white;
     border-radius: 5px;
+}
+
+#changeunits {
+    background-color:#1b3a55;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+}
+
+#changeunitsdiv {
+    text-align: right;
+    margin-right: 20px;
 }
 
 footer {

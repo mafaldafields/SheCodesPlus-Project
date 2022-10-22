@@ -75,12 +75,12 @@ function displayResponse(response) {
     currentTempText.innerHTML=`${currentTemp}ºC`;
      let windspeedT = document.querySelector(".windspeed");
     let windspeed = response.data.list[0].wind.speed;
-    let currentTempDesc=response.data.list[0].weather[0].description;
+     windspeedT.innerHTML=`Wind speed is ${windspeed}m/s`;
+     let currentTempDesc=response.data.list[0].weather[0].description;
     let currentTempDescription=currentTempDesc.charAt(0).toUpperCase()+currentTempDesc.slice(1);
     let temperatureTodayDescription=document.querySelector(".temperatureTodayDescription");
     temperatureTodayDescription.innerHTML=`${currentTempDescription}`;
     let todayIconCode=response.data.list[0].weather[0].icon;
-    windspeedT.innerHTML=`Wind speed is ${windspeed}m/s`;
     let todayIconT=document.querySelector("#todayIcon");
     todayIconT.setAttribute(
         "src",
@@ -133,12 +133,52 @@ function displayResponse(response) {
     todayIconTplus3.setAttribute(
         "src",
         `https://openweathermap.org/img/wn/${todayIconCodeplus3}.png`);
-
+// display what city the forecast is for
         let displayinfocity = document.querySelector("#displayinfocity");
         let cityforecasted = response.data.city.name;
         let countryforecasted = response.data.city.country;
-        displayinfocity.innerHTML=`Displaying forecast for ${cityforecasted}, ${countryforecasted}`;
+        displayinfocity.innerHTML=`Displaying forecast for ${cityforecasted}, ${countryforecasted}`;   
+        
+        function changeunits () {
+        // change windspeed
+            let windspeedF = windspeed*=2.2369362920544025;
+            let windspeedF_ = windspeedF.toFixed(2);
+            windspeedT.innerHTML=`Wind speed will be ${windspeedF_} mph`;
+            let windspeedplus1F = windspeedplus1*=2.2369362920544025;
+            let windspeedplus1F_ = windspeedplus1F.toFixed(2);
+            windspeedTplus1.innerHTML=`Wind speed will be ${windspeedplus1F_} mph`;
+            let windspeedplus2F = windspeedplus2*=2.2369362920544025;
+            let windspeedplus2F_ = windspeedplus2F.toFixed(2);
+            windspeedTplus2.innerHTML=`Wind speed will be ${windspeedplus2F_} mph`;
+            let windspeedplus3F = windspeedplus3*=2.2369362920544025;
+            let windspeedplus3F_ = windspeedplus3F.toFixed(2);
+            windspeedTplus3.innerHTML=`Wind speed will be ${windspeedplus3F_} mph`;
+        // change temp (°C x 9/5) + 32
+        let currentTemp_=currentTemp*=1.8;
+        let currentTempF=Math.round(currentTemp_+32);
+        let currentTempTextF=document.querySelector(".temperatureToday");
+        currentTempTextF.innerHTML=`${currentTempF}ºF`;
+        let tempTodayplus1_= tempTodayplus1*=1.8;
+        let tempTodayplus1F=Math.round(tempTodayplus1_+32);
+        let currentTempTextFplus1=document.querySelector(".temperatureTodayplus1");
+        currentTempTextFplus1.innerHTML=`${tempTodayplus1F}ºF`;
+        let tempTodayplus2_= tempTodayplus2*=1.8;
+        let tempTodayplus2F=Math.round(tempTodayplus2_+32);
+        let currentTempTextFplus2=document.querySelector(".temperatureTodayplus2");
+        currentTempTextFplus2.innerHTML=`${tempTodayplus2F}ºF`;
+        let tempTodayplus3_= tempTodayplus3*=1.8;
+        let tempTodayplus3F=Math.round(tempTodayplus3_+32);
+        let currentTempTextFplus3=document.querySelector(".temperatureTodayplus3");
+        currentTempTextFplus3.innerHTML=`${tempTodayplus3F}ºF`;
+        }
+        let changeunitsbutton = document.querySelector("#changeunits");
+        function disable () {
+            changeunitsbutton.disabled=true;
+        }
+        changeunitsbutton.addEventListener("click", changeunits) 
+        changeunitsbutton.addEventListener("click", disable)
 };
+
 
 function getCPWeather(position) { // get current position weather || auto
     let Long = position.coords.longitude;
@@ -165,7 +205,12 @@ function weatherForSearched (event) {
     axios.get(apiUrl1).then(defineL);
 }
 let searchForm = document.querySelector ("#search-bar");
+function activatebutton () {
+    let changeunitsbutton = document.querySelector("#changeunits");
+    changeunitsbutton.disabled=false;
+};
 searchForm.addEventListener("submit", weatherForSearched)
+searchForm.addEventListener("submit", activatebutton);
 
 // Button for current location
 function getloc() {
@@ -173,3 +218,4 @@ function getloc() {
 }
 let currentLocButton = document.querySelector ("#currentLocationButton");
 currentLocButton.addEventListener("click", getloc);
+currentLocButton.addEventListener("click", activatebutton);
